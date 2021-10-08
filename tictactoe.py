@@ -88,7 +88,7 @@ def minimax(board):
     """
     # if the board is terminal, there are no moves to make.
     if terminal(board):
-        return utility(board)
+        return None
     # best_move holds the position of the optimal move for the current player.
     best_move = 0
 
