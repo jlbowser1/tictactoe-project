@@ -65,21 +65,21 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
-   # raise NotImplementedError
+    raise NotImplementedError
 
 
 def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-   # raise NotImplementedError
+    raise NotImplementedError
 
 
 def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
-    #raise NotImplementedError
+    raise NotImplementedError
 
 
 def minimax(board):
@@ -88,6 +88,15 @@ def minimax(board):
     """
     # if the board is terminal, there are no moves to make.
     if terminal(board):
-        return None
+        return utility(board)
+    # best_move holds the position of the optimal move for the current player.
+    best_move = 0
 
-    raise NotImplementedError
+    for move in actions(board):
+        if player(board) == X:
+            best_move = max(best_move, minimax(result(board, move)))
+        else:
+            best_move = min(best_move, minimax(result(board, move)))
+
+    return best_move
+
